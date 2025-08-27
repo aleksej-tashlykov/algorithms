@@ -4,10 +4,18 @@ function randomNumbers(number) {
 	}
 
 	const numbers = [];
+	let shouldContinue = true;
 	const startTime = Date.now();
 
-	for (let i = 0; i < number; i++) {
+	let i = 0;
+	while (i < number && shouldContinue) {
 		numbers[i] = Math.random();
+
+		if (Date.now() - startTime >= 5000) {
+			shouldContinue = false;
+		}
+
+		i++;
 	}
 
 	const endTime = Date.now();
