@@ -4,10 +4,8 @@ if (arr.length === 0) {
 	return;
 }
 
-for (let i = 0; i < arr.length; i += 2) {
-	if (i + 1 < arr.length) {
-		let temp = arr[i];
-		arr[i] = arr[i + 1];
-		arr[i + 1] = temp;
-	}
+for (let i = 0; i + 1 < arr.length; i += 2) {
+	let temp = arr[i];
+	arr[i] = arr[i + 1];
+	arr[i + 1] = temp;
 }
