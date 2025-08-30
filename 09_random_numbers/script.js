@@ -6,24 +6,24 @@ function randomNumbers(number) {
 	const numbers = [];
 	let shouldContinue = true;
 	const startTime = Date.now();
+	let currentTime = 0;
 
 	let i = 0;
 	while (i < number && shouldContinue) {
 		numbers[i] = Math.random();
-
-		if (Date.now() - startTime >= 5000) {
+		currentTime = Date.now();
+		
+		if (currentTime - startTime >= 5000) {
 			shouldContinue = false;
 		}
 
 		i++;
 	}
 
-	const endTime = Date.now();
-	const duration = (endTime - startTime) / 1000;
-
+	const duration = (currentTime - startTime) / 1000;
 	console.log(`Время выполнения генерации: ${duration}`);
 
-	if (duration >= 5) {
+	if (!shouldContinue) {
 		console.log(
 			'Превышено допустимое время работы программы, введите количество поменьше'
 		);
