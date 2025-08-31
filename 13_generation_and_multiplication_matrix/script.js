@@ -17,10 +17,6 @@ function createMatrix(size) {
 }
 
 function fillMatrixRandomNumbers(matrix) {
-	if (matrix.length === 0) {
-		return;
-	}
-
 	for (let i = 0; i < matrix.length; i++) {
 		for (let k = 0; k < matrix.length; k++) {
 			matrix[i][k] = Math.random();
@@ -29,10 +25,6 @@ function fillMatrixRandomNumbers(matrix) {
 }
 
 function createAndFillMatrix(numberMatrices, sizeMatrices) {
-	if (numberMatrices <= 0 || sizeMatrices <= 0) {
-		return;
-	}
-
 	const matrices = [];
 	for (let i = 0; i < numberMatrices; i++) {
 		const matrix = createMatrix(sizeMatrices);
@@ -69,10 +61,6 @@ function multiplyTwoMatrices(matrixA, matrixB) {
 function multiplyAllMatrices(matrices, numberMatrices) {
 	if (matrices.length === 0 || numberMatrices <= 0) {
 		return;
-	}
-
-	if (numberMatrices === 1) {
-		return matrices[0];
 	}
 
 	let result = matrices[0];
