@@ -7,20 +7,20 @@ function randomNumbers(number) {
 	let shouldContinue = true;
 	const startTime = Date.now();
 	let currentTime = 0;
+	let duration = 0;
 
 	let i = 0;
 	while (i < number && shouldContinue) {
-		numbers[i] = Math.random();
 		currentTime = Date.now();
-		
-		if (currentTime - startTime >= 5000) {
+		duration = currentTime - startTime;
+
+		if (duration >= 5000) {
 			shouldContinue = false;
 		}
 
 		i++;
 	}
 
-	const duration = (currentTime - startTime) / 1000;
 	console.log(`Время выполнения генерации: ${duration}`);
 
 	if (!shouldContinue) {
@@ -30,6 +30,7 @@ function randomNumbers(number) {
 		return;
 	}
 
+	
 	let stringOfGeneratedNumbers = '';
 	for (let i = 0; i < numbers.length; i++) {
 		stringOfGeneratedNumbers += numbers[i];
