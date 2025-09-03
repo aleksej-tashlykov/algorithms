@@ -1,11 +1,11 @@
 const arr = [];
-let str = '';
+let char = 'a';
 
 for (let i = 0; i < 10; i++) {
-	str += 'a';
-}
-
-for (let i = 0; i < str.length; i++) {
+	let str = '';
+	for (let k = 0; k < 10; k++) {
+		str += char;
+	}
 	arr[i] = str;
 }
 
