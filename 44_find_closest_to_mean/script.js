@@ -7,20 +7,13 @@ for (let i = 0; i < arr.length; i++) {
 
 const average = sum / arr.length;
 
-let minDifference = arr[0] - average;
-
-if (minDifference < 0) {
-	minDifference = -minDifference;
-}
+let minDifference = Math.abs(arr[0] - average);
 
 let closestValue = arr[0];
 let difference = 0;
 
-for (let i = 0; i < arr.length; i++) {
-	difference = arr[i] - average;
-	if (difference < 0) {
-		difference = -difference;
-	}
+for (let i = 1; i < arr.length; i++) {
+	difference = Math.abs(arr[i] - average);
 
 	if (difference < minDifference) {
 		minDifference = difference;
