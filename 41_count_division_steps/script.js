@@ -1,11 +1,12 @@
-let number = 1000;
-const divisor = 3;
+function countDivision(number, divisor) {
+	if (number < divisor) {
+		return 0;
+	}
 
-let step = 0;
+	const quotient = number / divisor;
+	const step = countDivision(quotient, divisor);
 
-while (number >= divisor) {
-	number = number / divisor;
-	step++;
+	return step + 1;
 }
 
-console.log(step);
+console.log(countDivision(1000, 3));
