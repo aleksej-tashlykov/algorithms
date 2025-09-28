@@ -28,10 +28,8 @@ for (let i = 0; i < numberOfSegments; i++) {
 
 	part = [];
 
-	if (start < arrayLength) {
-		for (let j = start; j < end; j++) {
-			part[part.length] = numbers[j];
-		}
+	for (let j = start; j < end; j++) {
+		part[part.length] = numbers[j];
 	}
 
 	parts[parts.length] = part;
