@@ -3,10 +3,10 @@ function shiftArray(arr, offset) {
 		return;
 	}
 
-	let tempArray = [];
+	let tempArr = [];
 
 	for (let i = 0; i < arr.length; i++) {
-		tempArray[i] = arr[i];
+		tempArr[i] = arr[i];
 	}
 
 	for (let i = 0; i < arr.length; i++) {
@@ -15,7 +15,7 @@ function shiftArray(arr, offset) {
 
 	for (let i = 0; i < arr.length; i++) {
 		if (i + offset >= 0 && i + offset < arr.length) {
-			arr[i + offset] = tempArray[i];
+			arr[i + offset] = tempArr[i];
 		}
 	}
 
