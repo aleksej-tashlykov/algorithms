@@ -1,3 +1,17 @@
+function calculateAverage(arr) {
+	if (arr.length === 0) {
+		return;
+	}
+
+	let sum = 0;
+
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i];
+	}
+
+	return sum / arr.length;
+}
+
 const strings = [];
 const min = 1;
 const max = 10;
@@ -18,9 +32,4 @@ for (let i = 0; i < strings.length; i++) {
 	numbers[i] = num;
 }
 
-let sum = 0;
-for (let i = 0; i < numbers.length; i++) {
-	sum += numbers[i];
-}
-
-const average = sum / numbers.length;
+const average = calculateAverage(numbers);
