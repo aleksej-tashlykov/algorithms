@@ -4,9 +4,9 @@ function countDivision(number, divisor) {
 	}
 
 	const quotient = number / divisor;
-	const step = countDivision(quotient, divisor);
+	const step = Math.floor(Math.log(quotient) / Math.log(divisor));
 
 	return step + 1;
 }
 
-console.log(countDivision(1000, 3));
+console.log(countDivision(256, 2));
