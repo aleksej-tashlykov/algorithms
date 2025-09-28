@@ -1,10 +1,9 @@
 function generateRandomString(min, max) {
 	const strLength = Math.floor(Math.random() * (max - min + 1)) + min;
 	let str = '';
-	let char = 0;
 
 	for (let i = 0; i < strLength; i++) {
-		char = Math.floor(Math.random() * (126 - 32 + 1)) + 32;
+		const char = Math.floor(Math.random() * (126 - 32 + 1)) + 32;
 		str += String.fromCharCode(char);
 	}
 
@@ -13,7 +12,7 @@ function generateRandomString(min, max) {
 
 function checkNumbersInString(str) {
 	if (str.length === 0) {
-		return;
+		return false;
 	}
 
 	let hasDigits = false;
@@ -26,15 +25,16 @@ function checkNumbersInString(str) {
 	}
 
 	while (i < str.length) {
-		if (str[i] >= '0' && str[i] <= '9') {
+		const char = str[i];
+		if (char >= '0' && char <= '9') {
 			hasDigits = true;
-		} else if (str[i] === '.') {
+		} else if (char === '.') {
 			dotCount++;
 			if (dotCount > 1) {
-				return;
+				return false;
 			}
 		} else {
-			return;
+			return false;
 		}
 		i++;
 	}
@@ -42,18 +42,20 @@ function checkNumbersInString(str) {
 	return hasDigits;
 }
 
-const randomString = [];
+const randomStrings = [];
 
 for (let i = 0; i < 10; i++) {
-	randomString[i] = generateRandomString(1, 20);
+	randomStrings[i] = generateRandomString(1, 20);
 }
 
-let numbersCount = 0;
+let numberCount = 0;
 
-for (let i = 0; i < randomString.length; i++) {
-	if (checkNumbersInString(randomString[i])) {
-		numbersCount++;
+for (let i = 0; i < randomStrings.length; i++) {
+	if (checkNumbersInString(randomStrings[i])) {
+		numberCount++;
 	}
 }
 
-console.log(numbersCount);
+
+const probability = numberCount / 10;
+console.log(probability);
