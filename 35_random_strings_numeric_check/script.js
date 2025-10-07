@@ -42,20 +42,19 @@ function checkNumbersInString(str) {
 	return hasDigits;
 }
 
-const randomStrings = [];
+function calculateProbability(min, max) {
+	const totalChars = 95;
+	const numericChars = 12;
+	let probability = 0;
 
-for (let i = 0; i < 10; i++) {
-	randomStrings[i] = generateRandomString(1, 20);
-}
-
-let numberCount = 0;
-
-for (let i = 0; i < randomStrings.length; i++) {
-	if (checkNumbersInString(randomStrings[i])) {
-		numberCount++;
+	for (let i = min; i <= max; i++) {
+		const probabilityForThisString = Math.pow(numericChars / totalChars, i);
+		probability += probabilityForThisString;
 	}
+
+	probability = probability / (max - min + 1);
+
+	return probability;
 }
-
-
-const probability = numberCount / 10;
-console.log(probability);
+const theoreticalProbability = calculateProbability(1, 10);
+console.log(theoreticalProbability);
