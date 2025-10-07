@@ -3,19 +3,26 @@ function shiftArray(arr, offset) {
 		return;
 	}
 
-	let tempArr = [];
+	let startIndex;
+	let endIndex;
+	let step;
 
-	for (let i = 0; i < arr.length; i++) {
-		tempArr[i] = arr[i];
+	if (offset > 0) {
+		startIndex = arr.length - 1;
+		endIndex = 0;
+		step = -1;
+	} else {
+		startIndex = 0;
+		endIndex = arr.length - 1;
+		step = 1;
 	}
 
-	for (let i = 0; i < arr.length; i++) {
-		arr[i] = 0;
-	}
-
-	for (let i = 0; i < arr.length; i++) {
-		if (i + offset >= 0 && i + offset < arr.length) {
-			arr[i + offset] = tempArr[i];
+	for (let i = startIndex; i !== endIndex + step; i += step) {
+		let sourceIndex = i - offset;
+		if (sourceIndex >= 0 && sourceIndex < arr.length) {
+			arr[i] = arr[sourceIndex];
+		} else {
+			arr[i] = 0;
 		}
 	}
 
